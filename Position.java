@@ -1,22 +1,17 @@
 public class Position {
-    int x;
-    int y;
+    int row;
+    int column;
 
-    Position(int x_start, int y_start){
-        x = x_start;
-        y = y_start;
-    }
-    
-    public void set_position(int x_new, int y_new){
-        x = x_new;
-        y = y_new;
+    Position(int x, int y){
+        this.row = x;
+        this.column = y;
     }
 
-    public int get_x_position(){
-        return x;
+    public int get_row(){
+        return row;
     }
 
-    public int get_y_position(){
-        return y;
+    public int get_column(){
+        return column;
     }
 }

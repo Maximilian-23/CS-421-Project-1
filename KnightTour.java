@@ -11,7 +11,6 @@ public class KnightTour {
         int n = Integer.parseInt(args[1]);
         int x = Integer.parseInt(args[2]);
         int y = Integer.parseInt(args[3]);
-        int moves = 0;
 
         if (n <= 2){
             System.out.println("n must be greater than 2");
@@ -19,10 +18,12 @@ public class KnightTour {
         }
 
         KnightBoard board = new KnightBoard(n, x, y);
-        Position pos = new Position(x, y);
 
-        if (heuristic == 0){
-            
+        if (board.solve(x, y, heuristic)){
+            System.out.println("Solved");
+        }
+        else{
+            System.out.println("Unsolvable");
         }
 
         board.print_board();
