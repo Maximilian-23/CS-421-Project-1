@@ -51,6 +51,7 @@ public class KnightBoard {
             new_column = column + column_move[i];
             if (is_valid_move(new_row,new_column)){
                 board[new_row][new_column] = move;
+                total_moves++;
 
                 if (no_heuristic(new_row, new_column, move + 1)){
                     return true;
@@ -91,6 +92,7 @@ public class KnightBoard {
 
         for (int i= 0; i < candidate_count; i++){
             board[candidates[i][0]][candidates[i][1]] = move;
+            total_moves++;
             if (heuristicI(candidates[i][0], candidates[i][1], move + 1)){
                     return true;
             }
@@ -128,6 +130,7 @@ public class KnightBoard {
 
         for (int i= 0; i < candidate_count; i++){
             board[candidates[i][0]][candidates[i][1]] = move;
+            total_moves++;
             if (heuristicII(candidates[i][0], candidates[i][1], move + 1)){
                     return true;
                 }
@@ -198,7 +201,7 @@ public class KnightBoard {
         return false;
     }
 
-    public void print_board(/*int spacing*/){
+    public void print_board(){
 
         double temp_num = board_size * board_size;
         int width = 1;
@@ -208,6 +211,8 @@ public class KnightBoard {
         } while (temp_num > 1);
 
         String format = "%-" + width + "d";
+
+        System.out.println("Total Moves: " + total_moves);
 
         for (int i = 0; i < board_size; i++){
             for (int j = 0; j < board_size; j++){
