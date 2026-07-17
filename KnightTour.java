@@ -19,13 +19,10 @@ public class KnightTour {
 
         KnightBoard board = new KnightBoard(n, x, y);
 
-        if (board.solve(x, y, heuristic)){
-            System.out.println("Solved");
-        }
-        else{
-            System.out.println("Unsolvable");
-        }
+        board.solve(x, y, heuristic);
 
         board.print_board();
+
+        
     }
 }

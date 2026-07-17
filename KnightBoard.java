@@ -2,7 +2,6 @@ public class KnightBoard {
     int[][] board;
     int board_size;
     int total_moves;
-    boolean is_solvable;
     Position pos;
     int[] row_move = {-2, -1, 1, 2, 2, 1, -1, -2};
     int[] column_move = {1, 2, 2 , 1, -1, -2, -2, -1};
@@ -19,7 +18,6 @@ public class KnightBoard {
                 pos.row = row_start;
                 pos.column= column_start;
                 total_moves = 1;
-                is_solvable = true;
                 board[pos.get_row()][pos.get_column()] = 1;
         }
         else{
@@ -212,13 +210,18 @@ public class KnightBoard {
 
         String format = "%-" + width + "d";
 
-        System.out.println("Total Moves: " + total_moves);
+        System.out.println("The total number of moves is " + total_moves);
 
-        for (int i = 0; i < board_size; i++){
-            for (int j = 0; j < board_size; j++){
-                System.out.printf(format, board[i][j]);
-            }
+        if (board[0][0] == 0 || board[0][1] == 0){
+            System.out.println("No solution found!");
+        }
+        else{
+            for (int i = 0; i < board_size; i++){
+                for (int j = 0; j < board_size; j++){
+                    System.out.printf(format, board[i][j]);
+                }
             System.out.println();
+            }
         }
     }
 }
